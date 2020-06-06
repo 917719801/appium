@@ -15,7 +15,7 @@ import java.util.List;
 
 public class SearchPage {
     private static AppiumDriver driver;
-    private By nameLocator=By.id("name");
+    private By nameLocator = By.id("name");
 
     public SearchPage(AppiumDriver driver) {
         this.driver = driver;
@@ -32,7 +32,7 @@ public class SearchPage {
         return this;
     }
 
-    //获取股价值
+
     public double getPrice() {
         driver.findElement(nameLocator).click();
         return Double.valueOf(driver.findElement(By.id("current_price")).getText());
@@ -42,9 +42,8 @@ public class SearchPage {
     public List<String> getSearchList() {
         List<String> nameList = new ArrayList<>();
         for (Object element : driver.findElements(nameLocator)) {
-           nameList.add(((WebElement) element).getText());
+            nameList.add(((WebElement) element).getText());
         }
         return nameList;
-
     }
 }

@@ -36,6 +36,9 @@ public class MainPage {
     public void toStock(){
 
     }
+    public  void  tearDown(){
+        driver.quit();
+    }
 
 
 }
