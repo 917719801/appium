@@ -1,9 +1,8 @@
-package testCase;
+package xueqiu.testcase;
 
 import io.appium.java_client.AppiumDriver;
-import io.appium.java_client.MobileBy;
-import io.appium.java_client.MobileElement;
 import io.appium.java_client.android.AndroidDriver;
+import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
@@ -12,7 +11,6 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.net.MalformedURLException;
 import java.net.URL;
-import java.rmi.MarshalException;
 import java.util.concurrent.TimeUnit;
 
 public class alibabaDemo {
@@ -23,7 +21,7 @@ public class alibabaDemo {
         try {
             DesiredCapabilities caps = new DesiredCapabilities();
             caps.setCapability("platformName","Android");
-            caps.setCapability("deviceName","127.0.0.1:7555");
+            caps.setCapability("deviceName","emulator-5554");
             caps.setCapability("appPackage","com.xueqiu.android");
             caps.setCapability("noReset","true");
             caps.setCapability("appActivity",".view.WelcomeActivityAlias");
@@ -35,9 +33,9 @@ public class alibabaDemo {
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 
     }
-
+//搜索阿里巴巴
     @Test
-    void albabaTest(){
+    void alibabaTest(){
         /*
         MobileElement el1 = (MobileElement) driver.findElementById("com.xueqiu.android:id/tv_search");
         el1.click();
@@ -51,6 +49,10 @@ public class alibabaDemo {
 
 
     }
-
+    
+ /*   @AfterAll
+    public void teatDown(){
+        driver.quit();
+  }*/
 
 }
