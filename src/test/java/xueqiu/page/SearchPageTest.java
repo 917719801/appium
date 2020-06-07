@@ -19,10 +19,10 @@ class SearchPageTest {
 
 
     }
-//    @AfterAll
-//    static void  afterall(){
-//        searchPage.quit();
-//    }
+    @AfterAll
+    static void  afterall(){
+        searchPage.quit();
+    }
 
     @ParameterizedTest
     @CsvSource({

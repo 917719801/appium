@@ -22,12 +22,17 @@ public class SearchPage extends BasePage {
 
     //搜索
     public SearchPage search(String keyword) {
-        try {
-            Thread.sleep(2000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-        sendKeys(By.id("com.xueqiu.android:id/search_input_text"),keyword);
+//        try {
+//            Thread.sleep(2000);
+//        } catch (InterruptedException e) {
+//            e.printStackTrace();
+//        }
+        do {
+            sendKeys(By.id("com.xueqiu.android:id/search_input_text"),keyword);
+            System.out.println("sendkeys");
+
+        }while (driver.findElements(nameLocator).size() <=0);
+
         //driver.findElement(By.id("com.xueqiu.android:id/search_input_text")).sendKeys(keyword);
         return this;
     }

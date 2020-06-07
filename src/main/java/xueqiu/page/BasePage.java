@@ -10,6 +10,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.util.concurrent.TimeUnit;
 
 public class BasePage {
     AppiumDriver<MobileElement> driver;
@@ -34,6 +35,8 @@ public class BasePage {
             e.printStackTrace();
             System.exit(1);
         }
+
+        driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
         wait = new WebDriverWait(driver, 10);
     }
     public void quit() {
