@@ -5,20 +5,19 @@ package xueqiu.page;
 
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileElement;
-import io.appium.java_client.android.AndroidDriver;
+
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
+
 
 import java.util.ArrayList;
-import java.util.Arrays;
+
 import java.util.List;
 
-public class SearchPage {
-    private static AppiumDriver driver;
+public class SearchPage extends BasePage {
     private By nameLocator = By.id("name");
 
-    public SearchPage(AppiumDriver driver) {
-        this.driver = driver;
+    public SearchPage(AppiumDriver<MobileElement> driver) {
+        super(driver);
     }
 
     //搜索
@@ -28,22 +27,26 @@ public class SearchPage {
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-        driver.findElement(By.id("com.xueqiu.android:id/search_input_text")).sendKeys(keyword);
+        sendKeys(By.id("com.xueqiu.android:id/search_input_text"),keyword);
+        //driver.findElement(By.id("com.xueqiu.android:id/search_input_text")).sendKeys(keyword);
         return this;
     }
 
-
+//获取价格值
     public double getPrice() {
-        driver.findElement(nameLocator).click();
-        return Double.valueOf(driver.findElement(By.id("current_price")).getText());
-
+        click(nameLocator);
+       // driver.findElement(nameLocator).click();
+        //return Double.valueOf(driver.findElement(By.id("current_price")).getText());
+        return Double.valueOf(find(By.id("current_price")).getText());
     }
 
     public List<String> getSearchList() {
         List<String> nameList = new ArrayList<>();
-        for (Object element : driver.findElements(nameLocator)) {
-            nameList.add(((WebElement) element).getText());
-        }
+//        for (Object element : driver.findElements(nameLocator)) {
+//            nameList.add(((WebElement) element).getText());
+//        }
+      driver.findElements(nameLocator).forEach(element -> nameList.add(element.getText()));
         return nameList;
     }
+
 }
