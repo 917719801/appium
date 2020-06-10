@@ -26,11 +26,8 @@ class schedulePageTest {
 
     @Test
     void addbacklog(){
-
-
-
-
         wework.backlog().addbacklog("我要成长", "阿乐");
+        assertEquals(wework.backlog().getbacklog(),"我要成长");
     }
 
 }
