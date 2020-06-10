@@ -40,6 +40,8 @@ public class BasePage {
             caps.setCapability("appPackage",packageName);
             caps.setCapability("noReset","true");
             caps.setCapability("appActivity", activityName);
+            caps.setCapability("dontStopAppOnReset","true");
+            caps.setCapability("skipLogcatCapture","true");
 
             driver = new AndroidDriver<>(new URL("http://localhost:4723/wd/hub"),caps);
         } catch (MalformedURLException e) {

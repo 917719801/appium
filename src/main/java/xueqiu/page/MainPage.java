@@ -16,6 +16,8 @@ public class MainPage extends BasePage {
         return  new SearchPage(driver);
     }
 
+
+
     public void toStock(){
 
     }

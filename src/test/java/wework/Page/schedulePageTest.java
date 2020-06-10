@@ -23,8 +23,14 @@ class schedulePageTest {
 
     }
 
-    @Test
-    void getschedule() {
 
+    @Test
+    void addbacklog(){
+
+
+
+
+        wework.backlog().addbacklog("我要成长", "阿乐");
     }
+
 }
