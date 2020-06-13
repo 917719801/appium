@@ -63,13 +63,13 @@ public class BasePage {
     }
 
     public void click(By by) {
-        wait.until(ExpectedConditions.elementToBeClickable(by));
+        //wait.until(ExpectedConditions.elementToBeClickable(by));
         driver.findElement(by).click();
 
     }
 
     public void sendKeys(By by, String content) {
-        wait.until(ExpectedConditions.elementToBeClickable(by));
+        //wait.until(ExpectedConditions.elementToBeClickable(by));
         driver.findElement(by).sendKeys(content);
 
     }

@@ -5,6 +5,8 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import java.util.function.BooleanSupplier;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 class schedulePageTest {
@@ -12,22 +14,27 @@ class schedulePageTest {
     private static Wework wework;
 
     @BeforeAll
-    static void beforeall(){
+    static void beforeall() {
         wework = new Wework();
     }
 
 
     @Test
     void addschedule() {
-       assertTrue(wework.schedule().addschedule("上班打卡","8点").getschedule(null).contains("上班打卡"));
+        assertTrue(wework.schedule().addschedule("上班打卡", "8点").getschedule(null).contains("上班打卡"));
 
     }
 
 
     @Test
-    void addbacklog(){
-        wework.backlog().addbacklog("我要成长", "阿乐");
-        assertEquals(wework.backlog().getbacklog(),"我要成长");
+    void addbacklog() {
+        wework.backlog().addbacklog("我要成长", "张三");
+        //assertTrue((BooleanSupplier) wework.backlog().getbacklog(), "我要成长");
+    }
+
+    @Test
+    void adddaily(){
+        wework.report().adddaily("各位同学打架好");
     }
 
 }

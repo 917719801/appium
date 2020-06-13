@@ -15,4 +15,11 @@ public class Wework extends BasePage{
         click(By.xpath("//*[@text='待办']"));
         return new backlog(driver);
     }
+
+
+    public  report  report(){
+        click(By.xpath("//*[@text='工作台']"));
+        return new report(driver);
+    }
+
 }
