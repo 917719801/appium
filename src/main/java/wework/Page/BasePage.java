@@ -14,7 +14,7 @@ import java.util.concurrent.TimeUnit;
 
 public class BasePage {
     AppiumDriver<MobileElement> driver;
-    private WebDriverWait wait;
+    public WebDriverWait wait;
 
     public BasePage(String packageName, String activityName) {
         this.packageName = packageName;

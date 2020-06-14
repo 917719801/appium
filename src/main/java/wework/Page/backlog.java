@@ -1,12 +1,12 @@
 package wework.Page;
+/*
+添加待办事项
+ */
 
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileElement;
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
-
-import java.util.ArrayList;
-import java.util.List;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 
 public class backlog extends BasePage {
 
@@ -20,7 +20,9 @@ public class backlog extends BasePage {
         super(driver);
     }
 
-    public void addbacklog(String content, String name) {
+    public backlog addbacklog(String content, String name) {
+       // new WebDriverWait(driver).until(ExpectedConditions.visibilityOfElementLocated(gym)).action;
+        wait.until(ExpectedConditions.visibilityOfElementLocated(gym));
         click(gym);
         sendKeys(b2k, content);
         click(xpath);
@@ -30,15 +32,13 @@ public class backlog extends BasePage {
         click(By.id("fq2"));
         click(By.id("fq1"));
         click(By.id("gxq"));
+        return this;
 
     }
 
-    public List<String> getbacklog() {
-        List<String> backlog = new ArrayList<>();
-        for (Object element : driver.findElements(taskList)) {
-            backlog.add(((WebElement) element).getText());
-        }
+    public String getbacklog() {
 
-        return backlog;
+
+        return find(By.id("gw9")).getText();
     }
 }
