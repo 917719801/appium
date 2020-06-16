@@ -29,8 +29,7 @@ class schedulePageTest {
     @Test
     void addbacklog() {
         assertTrue(wework.backlog().addbacklog("我要成长", "张三").getbacklog().contains("我要成长"));
-        //assertTrue((wework.backlog().getbacklog(), "我要成长");
-        //assertTrue(wework.backlog().getbacklog().contains("我要成长"));
+
     }
 
     @Test

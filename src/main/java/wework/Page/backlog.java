@@ -7,11 +7,13 @@ import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileElement;
 import org.openqa.selenium.By;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
 
 public class backlog extends BasePage {
 
     private final By taskList = By.id("gw9");
-    private final By gym = By.id("gym");
+    private final By add = By.id("gym");
     private final By b2k = By.id("b2k");
     private final By xpath = By.xpath("//*[@text='参与人']");
 
@@ -21,9 +23,7 @@ public class backlog extends BasePage {
     }
 
     public backlog addbacklog(String content, String name) {
-       // new WebDriverWait(driver).until(ExpectedConditions.visibilityOfElementLocated(gym)).action;
-        wait.until(ExpectedConditions.visibilityOfElementLocated(gym));
-        click(gym);
+        click(add);
         sendKeys(b2k, content);
         click(xpath);
         click(By.id("gyr"));
