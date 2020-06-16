@@ -32,12 +32,12 @@ public class backlog extends BasePage {
         click(By.id("fq2"));
         click(By.id("fq1"));
         click(By.id("gxq"));
+
         return this;
 
     }
 
     public String getbacklog() {
-
 
         return find(By.id("gw9")).getText();
     }

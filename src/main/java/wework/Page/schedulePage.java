@@ -6,6 +6,8 @@ package wework.Page;
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileElement;
 import org.openqa.selenium.By;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.util.Arrays;
 import java.util.List;
@@ -22,7 +24,16 @@ public class schedulePage extends BasePage {
     }
 
     public schedulePage addschedule(String name, String time) {
-        click(add);
+//        try {
+//            Thread.sleep(100);
+//        } catch (InterruptedException e) {
+//            e.printStackTrace();
+//        }
+        if(wait.until(ExpectedConditions.invisibilityOfElementLocated(add))){
+            click(add);
+        }
+
+
         sendKeys(taskName, name);
         click(save);
 

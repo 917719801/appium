@@ -24,5 +24,8 @@ public class Wework extends BasePage{
         click(By.xpath("//*[@text='工作台']"));
         return new report(driver);
     }
+    public  void back(){
+
+    }
 
 }
