@@ -25,6 +25,10 @@ public class Wework extends BasePage{
         return new report(driver);
     }
     public  void back(){
+        do{
+            click(By.id("gyb"));
+        }while (driver.findElements(By.xpath("//*[@text='工作台']")).size() <= 0 );
+        click(By.xpath("//*[@text='消息']"));
 
     }
 

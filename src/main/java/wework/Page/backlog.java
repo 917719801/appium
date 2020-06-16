@@ -23,7 +23,9 @@ public class backlog extends BasePage {
     }
 
     public backlog addbacklog(String content, String name) {
-        click(add);
+        if(wait.until(ExpectedConditions.invisibilityOfElementLocated(add))){
+            click(add);
+        }
         sendKeys(b2k, content);
         click(xpath);
         click(By.id("gyr"));
@@ -41,4 +43,5 @@ public class backlog extends BasePage {
 
         return find(By.id("gw9")).getText();
     }
+
 }
